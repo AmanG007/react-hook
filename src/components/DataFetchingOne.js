@@ -11,19 +11,22 @@ function DataFetchingOne() {
             .get('https://jsonplaceholder.typicode.com/posts/1')
             .then(response => {
                 setLoading(false)
-                setError('')
                 setPost(response.data)
+                setError('')
+                
             })
             .catch(error => {
                 setLoading(false)
-                setError('something whent wrong!')
                 setPost({})
+                setError('something whent wrong!')
+                
             })
     }, [])
 
   return (
     <div>
-        
+        {loading ? 'Loading': post.title}
+        {error? error:null}
     </div>
   )
 }
